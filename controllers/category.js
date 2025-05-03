@@ -16,6 +16,17 @@ exports.create = async (req, res) => {
     });
   }
 };
+
+exports.testdb = async (req, res) => {
+  try {
+    const category = await prisma.category.findMany();
+    res.json(category);
+  } catch (error) {
+    console.error(err);
+    res.status(500).json({ error: "DB connection failed" });
+  }
+};
+
 exports.list = async (req, res) => {
   try {
     const category = await prisma.category.findMany();
@@ -27,6 +38,7 @@ exports.list = async (req, res) => {
     });
   }
 };
+
 exports.remove = async (req, res) => {
   try {
     const { id } = req.params;
