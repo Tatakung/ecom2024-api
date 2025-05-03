@@ -20,9 +20,8 @@ exports.list = async (req, res) => {
   try {
     // const category = await prisma.category.findMany();
     // res.json(category);
-
+    // confirm
     res.send('สวัสดีจร้า')
-
   } catch (error) {
     console.log(error);
     res.json({
