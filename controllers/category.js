@@ -18,10 +18,15 @@ exports.create = async (req, res) => {
 };
 exports.list = async (req, res) => {
   try {
-    // const category = await prisma.category.findMany();
-    // res.json(category);
-    // confirm
-    res.send('สวัสดีจร้า')
+    const category = await prisma.category.findMany();
+    if(category){
+      res.json(category)
+    }
+    else{
+      res.send('ไม่มีข้อมูลหรือเชื่อมต่อข้อมูลไม่ได้')
+    }
+    
+    
   } catch (error) {
     console.log(error);
     res.json({
