@@ -33,7 +33,6 @@ exports.list = async (req, res) => {
   try {
     const category = await prisma.category.findMany();
     if (category) {
-      // res.send("มีข้อมูล");
       res.json({ categories: category });
     } else {
       res.send("ไม่มีข้อมูลหรือเชื่อมต่อข้อมูลไม่ได้");
@@ -44,8 +43,12 @@ exports.list = async (req, res) => {
       message: "Server Errorมากๆ555",
       error: error.message, // <-- แสดง error message ตรงนี้
     });
+  } finally {
+    // Disconnect after query
+    await prisma.$disconnect();
   }
 };
+
 
 exports.remove = async (req, res) => {
   try {
