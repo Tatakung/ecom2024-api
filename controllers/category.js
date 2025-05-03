@@ -33,7 +33,8 @@ exports.list = async (req, res) => {
   try {
     const category = await prisma.category.findMany();
     if (category) {
-      res.send("มีข้อมูล");
+      // res.send("มีข้อมูล");
+      res.json({ categories: category });
     } else {
       res.send("ไม่มีข้อมูลหรือเชื่อมต่อข้อมูลไม่ได้");
     }
