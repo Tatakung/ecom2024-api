@@ -23,7 +23,7 @@ exports.list = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.json({
-      message: "Server Error",
+      message: "Server Errorมากๆ555",
     });
   }
 };
