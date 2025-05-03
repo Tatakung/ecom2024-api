@@ -46,9 +46,6 @@ exports.list = async (req, res) => {
   }
 };
 
-
-
-
 exports.remove = async (req, res) => {
   try {
     const { id } = req.params;
