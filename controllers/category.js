@@ -18,8 +18,11 @@ exports.create = async (req, res) => {
 };
 exports.list = async (req, res) => {
   try {
-    const category = await prisma.category.findMany();
-    res.json(category);
+    // const category = await prisma.category.findMany();
+    // res.json(category);
+
+    res.send('สวัสดีจร้า')
+
   } catch (error) {
     console.log(error);
     res.json({
