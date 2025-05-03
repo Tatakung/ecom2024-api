@@ -32,20 +32,29 @@ exports.create = async (req, res) => {
 exports.list = async (req, res) => {
   try {
     const category = await prisma.category.findMany();
-    if (category) {
-      res.json(category);
-    } else {
-      res.send("ไม่มีข้อมูลหรือเชื่อมต่อข้อมูลไม่ได้");
-    }
+    res.json(category); // หรือจะห่อก็ได้
   } catch (error) {
-    console.error("🔥 Prisma Error:", error); // เพิ่ม log ที่ชัดเจน
+    console.error("🔥 Prisma Error:", error);
     res.status(500).json({
       message: "Server Errorมากๆ555",
-      error: error.message, // <-- แสดง error message ตรงนี้
+      error: error.message,
     });
   } finally {
-    // Disconnect after query
-    await prisma.$disconnect();
+    await prisma.$disconnect(); // สำคัญมาก
+  }
+};
+exports.listcopy = async (req, res) => {
+  try {
+    const category = await prisma.category.findMany();
+    res.json({category}); // หรือจะห่อก็ได้
+  } catch (error) {
+    console.error("🔥 Prisma Error:", error);
+    res.status(500).json({
+      message: "Server Errorมากๆ555",
+      error: error.message,
+    });
+  } finally {
+    await prisma.$disconnect(); // สำคัญมาก
   }
 };
 
