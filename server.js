@@ -9,6 +9,7 @@ app.use(express.json({ limit: "20mb" }));
 
 readdirSync("./routes").map((c) => app.use("/api/", require("./routes/" + c)));
 
-app.listen(5000, () => {
-  console.log("server runing");
-});
+// app.listen(5000, () => {
+//   console.log("server runing");
+// });
+module.exports = app;
