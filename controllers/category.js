@@ -20,17 +20,19 @@ exports.list = async (req, res) => {
   try {
     const category = await prisma.category.findMany();
     if (category) {
-      res.send("มีข้อมุล");
+      res.send("มีข้อมูล");
     } else {
-      res.send("ไม่มีข้อมูลหรือเชื่อมต่อข้อมูลไม่ได้ ");
+      res.send("ไม่มีข้อมูลหรือเชื่อมต่อข้อมูลไม่ได้");
     }
   } catch (error) {
-    console.log(error);
-    res.json({
+    console.error("🔥 Prisma Error:", error); // เพิ่ม log ที่ชัดเจน
+    res.status(500).json({
       message: "Server Errorมากๆ555",
+      error: error.message, // <-- แสดง error message ตรงนี้
     });
   }
 };
+
 exports.remove = async (req, res) => {
   try {
     const { id } = req.params;
