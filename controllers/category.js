@@ -40,7 +40,7 @@ exports.list = async (req, res) => {
   } catch (error) {
     console.error("Prisma Error:", error); // เพิ่ม log ที่ชัดเจน
     res.status(500).json({
-      message: "Server Errorมากๆ555",
+      message: "Server Errorมากๆ55555",
       error: error.message, // <-- แสดง error message ตรงนี้
     });
   }
