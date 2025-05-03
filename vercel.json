@@ -1,19 +1,20 @@
 {
-  "version": 2,
-  "name": "roitai",
-  "builds": [
-    {
-      "src": "server.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "server.js",
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
+    "version": 2,
+    "name": "roitai",
+    "builds": [
+      {
+        "src": "server.js",
+        "use": "@vercel/node"
       }
-    }
-  ]
-}
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "server.js",
+        "headers": {
+          "Access-Control-Allow-Origin": "*"
+        }
+      }
+    ]
+  }
+  
